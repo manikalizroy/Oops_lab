@@ -2,13 +2,16 @@ class Matmulti
 {
     
     int[][] c;
-    int i,j,k;
+    int i,j,k,n;
     
-    void displaymat(int[][] x,int n,int n)
+    void displaymat(int[][] x)
     {
         for(i=0;i<n;i++)
             for(j=0;j<n;j++)
-                 System.out.println("Prod:" + x[i][j]);    
+            {
+                 System.out.println(x[i][j] + " "); 
+            }
+            System.out.println();
     }
     
     void multiply(int [][] a,int[][] b)
@@ -21,15 +24,20 @@ class Matmulti
     
     void printprod()
     {
-        for(i=0;i<n;i++)
-            for(j=0;j<n;j++)
-                System.out.println("Prod:" + c[i][j]);    
+        System.out.println("Product:");
+        for (i = 0; i < n; i++) 
+        {
+            for (j = 0; j < n; j++) 
+            {
+                System.out.print(c[i][j] + " ");
+            }
+            System.out.println();
+        }    
     }
         
-    }
 }
 
-public class Palindrome
+public class Main
 {
     public static void main(String[] args)
     {
@@ -37,9 +45,11 @@ public class Palindrome
         Matmulti m1 = new Matmulti();
         int[][] a = {{1,2},{2,3}};
         int[][] b = {{1,3},{2,1}};
-        m1.displaymat(a[][],n,n);
-        m1.displaymat(b[][],n,n);
-        m1.multiply(a[][],b[][]);
+        System.out.println("Matrix A:");
+        m1.displaymat(a);
+        System.out.println("Matrix B:");
+        m1.displaymat(b);
+        m1.multiply(a,b);
         m1.printprod();
       
     }
