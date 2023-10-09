@@ -1,7 +1,7 @@
 class Matmulti
 {
     int m,n,p,q;
-    int[][] c = new int[n][n];
+    int[][] c = new int[m][q];
     int i,j,k;
     
     public Matmulti(int m, int n, int p, int q) {
