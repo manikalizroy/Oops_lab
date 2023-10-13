@@ -1,54 +1,48 @@
-class Multipication
+class Matrix
 {
-    private int m,n,p,q;
-    private int[][] c;
+    public int[][] a;
+    public int m,n;
+    public int i,j,k;
+
+
+   public Matrix(int[][] x,int y,int z)
+   {
+         this.a = x;
+         this.m= y;
+         this.n = z;
+   }
     
-    public Multipication(int m, int n, int p, int q)
+    Matrix multiply(Matrix B)
     {
-        this.m = m;
-        this.n = n;
-        this.p = p;
-        this.q = q;
-        c = new int[20][20];
+
+        int[][] a = this.a;
+        int[][] b = B.a;
+        int[][] c = new int[this.m][B.n];
+        
+        for(i=0;i<this.m;i++)
+            for(j=0;j<B.n;j++)
+            {
+                c[i][j] = 0;
+                for(k=0;k<this.n;k++)
+                    c[i][j] += a[i][k]*b[k][j];
+            }   
+
+     return new Matrix(c, this.m, B.n);
     }
     
-    public void display(int[][] x,int m,int n)
+public void display()
     {
-        int i,j,k;
-        for(i=0;i<m;i++)
+        
+        for(i=0;i<this.m;i++)
         {
-            for(j=0;j<n;j++)
+            for(j=0;j<this.n;j++)
             {
-                System.out.print(x[i][j] + " ");
+                System.out.print(this.a[i][j] + " ");
             }
             System.out.println();
         }
-    } 
+    }     
     
-    public void multiply(int[][] a,int[][] b)
-    {
-        int i,j,k;
-        for(i=0;i<m;i++)
-            for(j=0;j<q;j++)
-            {
-                c[i][j] = 0;
-                for(k=0;k<n;k++)
-                    c[i][j] += a[i][k]*b[k][j];
-            }     
-    }
-    
-    public void print()
-    {
-        int i,j;
-        for(i=0;i<m;i++)
-        {
-            for(j=0;j<q;j++)
-            {
-                System.out.print(c[i][j] + " ");
-            }
-            System.out.println();
-        }    
-    }
 }
 
 public class Main
@@ -56,15 +50,17 @@ public class Main
     public static void main(String[] args)
     {
         int m=3,n=2,p=2,q=3;
-        Multipication m1 = new Multipication(m,n,p,q);
         int[][] a = {{1,3},{4,1},{1,1}};
         int[][] b = {{3,2,0},{0,1,2}};
+        Matrix A = new Matrix(a,m,n);
+        Matrix B = new Matrix(b,p,q);
+       
         System.out.println("Matrix A: ");
-        m1.display(a,m,n);
+        A.display();
         System.out.println("Matrix B: ");
-        m1.display(b,p,q);
-        m1.multiply(a,b);
+        B.display();
+        Matrix C = A.multiply(B);
         System.out.println("Product Matrix : ");
-        m1.print();
+        C.display();
     }
 }
