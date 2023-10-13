@@ -5,7 +5,7 @@ class Employee
     int age,phno,salary;
     String address;
   
-    public Employee(String name,int age,int phno,int salary,String address)
+    public Employee(String name,int age,int phno,int salary,String address,String specialization, String department)
     {
         this.name = name;
         this.age = age;
@@ -23,7 +23,7 @@ class Employee
 class Officer extends Employee
 {
     String specialization;
-    public Officer(String name,int age,int phno,int salary,String address)
+    public Officer(String name,int age,int phno,int salary,String address, String specialization, String department)
     {
         super(name,age,phno,salary,address);
         this.specialization = specialization;
